@@ -25,7 +25,7 @@
     body {
       background: var(--navy); 
       color: var(--off-white);
-      /* Premium local system font stack - zero internet network requests required */
+      /* High-performance, clean sans-serif stack across all platforms */
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
       font-size: 15px;
       line-height: 1.6; 
@@ -38,11 +38,12 @@
       opacity:.5;
     }
     
-    /* Forces an elegant, traditional editorial layout using premium local serifs */
+    /* Elegant Editorial Headers with Uniform-Height Numbers (Lining Figures) */
     h1, h2, h3, h4 { 
-      font-family: Georgia, Cambria, "Times New Roman", Times, serif; 
+      font-family: "Times New Roman", Times, "Cambria", Georgia, serif; 
       font-weight: 700; 
       line-height: 1.15; 
+      font-variant-numeric: lining-nums; /* Forces "2026" numbers to match heights perfectly */
     }
     
     .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; position:relative; z-index:1; }
@@ -74,8 +75,9 @@
       font-size:12px; color:var(--copper);
     }
     .nav-name {
-      font-family: Georgia, serif; font-size:13px; font-weight:700;
+      font-family: "Times New Roman", Times, serif; font-size:14px; font-weight:700;
       color:var(--off-white); letter-spacing:.1em; text-transform:uppercase; display:block;
+      font-variant-numeric: lining-nums;
     }
     .nav-sub { font-size:9px; color:var(--slate); letter-spacing:.07em; text-transform:uppercase; display:block; }
     .btn-nav {
@@ -168,7 +170,7 @@
     .avatar-badge::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--copper); }
     .avatar-container.playing .avatar-badge::before { background:var(--green); animation:pulseDot 1s infinite; }
     
-    .avatar-title { font-family: Georgia, serif; font-size:1.15rem; color:var(--off-white); margin-bottom:0.25rem; }
+    .avatar-title { font-family: "Times New Roman", Times, serif; font-size:1.15rem; color:var(--off-white); margin-bottom:0.25rem; font-variant-numeric: lining-nums; }
     .avatar-prompt { font-size:12px; color:var(--copper-light); display:flex; align-items:center; gap:4px; font-weight:500; }
 
     .trust-row { margin-top:2.5rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; border-top:1px solid var(--border-sub); padding-top:1.5rem; }
@@ -181,7 +183,7 @@
       background:rgba(255,255,255,.02); padding:2rem 0;
     }
     .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:1.5rem; text-align:center; }
-    .stat-v { font-family: Georgia, serif; font-size:2rem; font-weight:900; color:var(--copper); display:block; }
+    .stat-v { font-family: "Times New Roman", Times, serif; font-size:2rem; font-weight:900; color:var(--copper); display:block; font-variant-numeric: lining-nums; }
     .stat-l { font-size:10px; color:var(--slate); text-transform:uppercase; letter-spacing: .08em; }
 
     /* SECTION HDR */
@@ -203,7 +205,7 @@
     }
     .asset-card:hover { border-color:var(--border); background:rgba(184,115,51,.04); transform:translateY(-2px); }
     .asset-card:hover::before { opacity:1; }
-    .asset-num { font-size:9px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.85rem; display:block; }
+    .asset-num { font-size:9px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.85rem; display:block; font-variant-numeric: lining-nums; }
     .asset-icon { width:38px; height:38px; border-radius:8px; background:var(--copper-dim); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:17px; margin-bottom:.9rem; }
     .asset-card h3 { font-size:1.05rem; font-weight:700; color:var(--off-white); margin-bottom:.45rem; }
     .asset-card p  { font-size:13px; color:var(--slate); line-height:1.65; margin-bottom:1rem; }
@@ -222,7 +224,7 @@
     .grader-strip h3 { font-size:1.35rem; color:var(--off-white); margin-bottom:.45rem; }
     .grader-strip p  { font-size:13px; color:var(--slate); max-width:400px; }
     .score-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:1.1rem; }
-    .score-chip { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; padding:4px 12px; border-radius:6px; font-weight:500; }
+    .score-chip { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; padding:4px 12px; border-radius:6px; font-weight:500; font-variant-numeric: lining-nums; }
     .sc-g { background:rgba(34,197,94,.1); color:#22c55e; border:1px solid rgba(34,197,94,.2); }
     .sc-a { background:rgba(245,158,11,.1); color:#f59e0b; border:1px solid rgba(245,158,11,.2); }
     .sc-r { background:rgba(239,68,68,.1); color:#ef4444; border:1px solid rgba(239,68,68,.2); }
@@ -244,6 +246,7 @@
       border:1px solid rgba(245,158,11,.22); background:rgba(245,158,11,.04);
       border-radius:9px; padding:1.1rem 1.4rem; margin-top:1.4rem;
       font-size:12px; color:var(--slate); line-height:1.7;
+      font-variant-numeric: lining-nums;
     }
     .gk-box strong { color:var(--off-white); }
 
@@ -256,14 +259,15 @@
     .p-label { font-size:9px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.4rem; display:block; font-weight:600; }
     .p-product { font-size:1.05rem; font-weight:700; color:var(--off-white); margin-bottom:1.1rem; }
     .p-amount  { display:flex; align-items:baseline; gap:3px; }
-    .p-cur  { font-family: Georgia, serif; font-size:1.4rem; color:var(--copper); }
-    .p-val  { font-family: Georgia, serif; font-size:3.5rem; font-weight:900; color:var(--off-white); line-height:1; }
+    .p-cur  { font-family: "Times New Roman", Times, serif; font-size:1.4rem; color:var(--copper); }
+    .p-val  { font-family: "Times New Roman", Times, serif; font-size:3.5rem; font-weight:900; color:var(--off-white); line-height:1; }
     .p-note { font-size:11px; color:var(--slate); margin-top:4px; display:block; }
     .p-features { margin-bottom:1.6rem; }
     .p-feat {
       display:flex; align-items:center; gap:10px; padding:8px 0;
       border-bottom:1px solid var(--border-sub);
       font-size:13px; color:var(--slate); font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-variant-numeric: lining-nums;
     }
     .p-feat:last-child { border-bottom:none; }
     .p-feat .ck { color:var(--green); font-size:13px; }
@@ -282,14 +286,14 @@
     /* FOOTER */
     footer { border-top:1px solid var(--border-sub); padding:3rem 0 2rem; }
     .footer-top { display:flex; align-items:flex-start; justify-content:space-between; gap:2rem; flex-wrap:wrap; margin-bottom:2.25rem; }
-    .f-name { font-family: Georgia, serif; font-size:14px; font-weight:700; color:var(--off-white); letter-spacing:.1em; text-transform:uppercase; display:block; margin-bottom:.3rem; }
+    .f-name { font-family: "Times New Roman", Times, serif; font-size:14px; font-weight:700; color:var(--off-white); letter-spacing:.1em; text-transform:uppercase; display:block; margin-bottom:.3rem; }
     .f-tag  { font-size:10px; color:var(--slate); letter-spacing:.06em; text-transform:uppercase; }
     .f-links { display:flex; gap:1.5rem; flex-wrap:wrap; list-style:none; }
     .f-links a { font-size:12px; color:var(--slate); text-decoration:none; transition:color .2s; }
     .f-links a:hover { color:var(--copper); }
     .disclaimer-box { background:rgba(255,255,255,.02); border:1px solid var(--border-sub); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:2rem; }
     .disc-label { font-size:9px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; color:var(--copper); letter-spacing:.1em; text-transform:uppercase; margin-bottom:7px; display:block; font-weight:600; }
-    .disc-text  { font-size:11px; color:rgba(138,155,176,.65); line-height:1.7; }
+    .disc-text  { font-size:11px; color:rgba(138,155,176,.65); line-height:1.7; font-variant-numeric: lining-nums; }
     .footer-bottom { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-size:11px; color:var(--slate); border-top:1px solid var(--border-sub); padding-top:1.4rem; }
   </style>
 </head>
@@ -335,250 +339,4 @@
         <div class="avatar-frame" onclick="toggleAilsaAudio()">
           <img src="ailsa-avatar.jpg" alt="Ailsa — AI Compliance Guide" class="avatar-img" />
           <div class="avatar-overlay">
-            <span class="avatar-badge" id="avatarStateBadge">Ailsa · Offline</span>
-            <h3 class="avatar-title">Meet Your AI Guide</h3>
-            <span class="avatar-prompt" id="avatarPromptText">🔈 Click to listen to Ailsa (60s)</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="trust-row fu4">
-      <div class="trust-item"><span class="trust-tick">✓</span> Built for UK SMEs</div>
-      <div class="trust-item"><span class="trust-tick">✓</span> Aligned to Aviva &amp; Hiscox PI criteria</div>
-      <div class="trust-item"><span class="trust-tick">✓</span> UK GDPR &amp; ICO compliant framework</div>
-      <div class="trust-item"><span class="trust-tick">✓</span> Instant digital download</div>
-    </div>
-  </div>
-</section>
-
-
-<div class="stats-bar">
-  <div class="container">
-    <div class="stats-grid">
-      <div><span class="stat-v">15</span><span class="stat-l">Audit Checkpoints</span></div>
-      <div><span class="stat-v">4</span><span class="stat-l">Governance Assets</span></div>
-      <div><span class="stat-v">90</span><span class="stat-l">Day Roadmap</span></div>
-      <div><span class="stat-v">£495</span><span class="stat-l">One-Time Price</span></div>
-    </div>
-  </div>
-</div>
-
-
-<section class="section" id="vault">
-  <div class="container">
-    <span class="sec-eye">The Ailsa Compliance Vault</span>
-    <h2 class="sec-title">Four audit-ready assets. One complete PI renewal package.</h2>
-    <p class="sec-body">Each asset maps to the gatekeeper questions UK insurers now require written evidence for. Together they constitute a complete, submittable governance pack.</p>
-
-    <div class="assets-grid">
-
-      <div class="asset-card fu1">
-        <span class="asset-num">Asset 01 · Tab 1</span>
-        <div class="asset-icon">📖</div>
-        <h3>Staff AI Handbook</h3>
-        <p>Seven-section mandatory employee rulebook targeting Shadow AI. Covers HITL requirements, UK GDPR obligations, data residency rules, and the 72-hour ICO incident notification procedure. Includes legally grounded Shadow AI prohibition clause and full staff sign-off evidence table.</p>
-        <span class="badge badge-a">Governance &amp; Ethics</span>
-      </div>
-
-      <div class="asset-card fu2">
-        <span class="asset-num">Asset 02 · Tab 2</span>
-        <div class="asset-icon">✅</div>
-        <h3>Insurance Readiness Checklist</h3>
-        <p>15-point Aviva/Hiscox-aligned audit with weighted PI scoring to 20 points across five categories. Auto-Amber gatekeeper enforces the contractual liability checkpoint (CP-10). Live Red / Amber / Green verdict with full evidence requirements per item.</p>
-        <span class="badge badge-b">PI Insurance Evidence</span>
-      </div>
-
-      <div class="asset-card fu3">
-        <span class="asset-num">Asset 03 · Tab 3</span>
-        <div class="asset-icon">📋</div>
-        <h3>AI Risk Register</h3>
-        <p>A live, sortable audit log of every AI tool in your business. Classifies tools as High / Med / Low risk by data residency, vendor training policy, and HITL status. Auto-classification formula built for Google Sheets. Includes 10 pre-populated sample rows covering seven departments.</p>
-        <span class="badge badge-c">Inventory &amp; Visibility</span>
-      </div>
-
-      <div class="asset-card fu4">
-        <span class="asset-num">Asset 04 · Tab 4</span>
-        <div class="asset-icon">🗺</div>
-        <h3>90-Day Implementation Roadmap</h3>
-        <p>12-milestone week-by-week plan from Day 1 visibility audit to Day 90 PI broker submission. Prioritises the Shadow AI gap in the first 15 days. Status dropdown with Red/Amber/Green conditional formatting — rows turn green as milestones are completed.</p>
-        <span class="badge badge-d">Implementation</span>
-      </div>
-
-    </div>
-
-    <div class="grader-strip">
-      <div>
-        <h3>Find out your score in 5 minutes</h3>
-        <p>The 2026 AI Insurance Risk Grader runs the same 15-checkpoint audit as the Vault's Checklist — instantly, free, and with no sign-up required.</p>
-        <div class="score-row">
-          <span class="score-chip sc-g">🟢 Green · 80–100% · Audit-Ready</span>
-          <span class="score-chip sc-a">🟠 Amber · 50–79% · Governance Gaps</span>
-          <span class="score-chip sc-r">🔴 Red · 0–49% · Uninsurable</span>
-        </div>
-      </div>
-      <a href="https://ailsa-risk-grader.vercel.app/" target="_blank" rel="noopener" class="btn-primary">Run Free Grader →</a>
-    </div>
-
-  </div>
-</section>
-
-
-<section class="section purchase-bg" id="purchase">
-  <div class="container">
-    <div class="purchase-grid">
-
-      <div class="purchase-info">
-        <span class="sec-eye">Purchase</span>
-        <h2>The 2026 AI Compliance Vault</h2>
-        <p style="color:var(--slate);font-size:15px;line-height:1.75;">A complete, pre-structured Google Sheets vault containing all four governance assets, formatted for immediate use and PI insurance submission.</p>
-
-        <div class="included-list">
-          <div class="included-item">
-            <span class="ii-icon">📖</span>
-            <div class="ii-body">
-              <h4>Staff AI Handbook (Tab 1)</h4>
-              <p>7 policy sections, Shadow AI prohibition, HITL requirements, UK GDPR response, staff sign-off table.</p>
-            </div>
-          </div>
-          <div class="included-item">
-            <span class="ii-icon">✅</span>
-            <div class="ii-body">
-              <h4>Insurance Readiness Checklist (Tab 2)</h4>
-              <p>15 checkpoints, PI-weighted scoring to 20, Auto-Amber gatekeeper, live verdict formula.</p>
-            </div>
-          </div>
-          <div class="included-item">
-            <span class="ii-icon">📋</span>
-            <div class="ii-body">
-              <h4>AI Risk Register (Tab 3)</h4>
-              <p>12-column schema, 10 sample rows, auto-classification formula, conditional formatting rules.</p>
-            </div>
-          </div>
-          <div class="included-item">
-            <span class="ii-icon">🗺</span>
-            <div class="ii-body">
-              <h4>90-Day Roadmap (Tab 4)</h4>
-              <p>12 milestones, phase-coded status, Red/Amber/Green formatting, evidence requirements column.</p>
-            </div>
-          </div>
-          <div class="included-item">
-            <span class="ii-icon">⚡</span>
-            <div class="ii-body">
-              <h4>Risk Grader WebApp Access</h4>
-              <p>Hosted interactive scoring tool — use as a lead generation front door or share directly with clients.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="gk-box">
-          <strong>⚠ The Auto-Amber Gatekeeper:</strong> Under the 2026 UK PI insurance framework, a business without an AI liability clause in client contracts cannot achieve a Green insurability score — regardless of all other governance measures. CP-10 is the first asset your broker will examine. The Vault is structured around this constraint.
-        </div>
-      </div>
-
-      <div>
-        <div class="pricing-card">
-          <div class="pricing-top">
-            <span class="p-label">One-Time Digital Purchase</span>
-            <div class="p-product">The 2026 AI Compliance Vault</div>
-            <div class="p-amount">
-              <span class="p-cur">£</span>
-              <span class="p-val">495</span>
-            </div>
-            <span class="p-note">Single licence · Instant download · Google Sheets format</span>
-          </div>
-          <div class="p-features">
-            <div class="p-feat"><span class="ck">✓</span> Staff AI Handbook (Tab 1, 7 sections)</div>
-            <div class="p-feat"><span class="ck">✓</span> Insurance Readiness Checklist (Tab 2)</div>
-            <div class="p-feat"><span class="ck">✓</span> AI Risk Register (Tab 3)</div>
-            <div class="p-feat"><span class="ck">✓</span> 90-Day Roadmap (Tab 4, 12 milestones)</div>
-            <div class="p-feat"><span class="ck">✓</span> Risk Grader WebApp access</div>
-            <div class="p-feat"><span class="ck">✓</span> Auto-classification formulas &amp; formatting</div>
-            <div class="p-feat"><span class="ck">✓</span> 10 pre-populated AI tool sample rows</div>
-            <div class="p-feat"><span class="ck">✓</span> UK GDPR &amp; ICO-aligned policy language</div>
-          </div>
-          <button class="btn-buy" onclick="handlePurchase()">🛡 Buy Now — £495</button>
-          <p class="p-guarantee">Instant access on payment · No subscription · VAT may apply</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div>
-        <span class="f-name">Ailsa Studio</span>
-        <span class="f-tag">AI Compliance Shield · UK Digital Product Vendor</span>
-      </div>
-      <ul class="f-links">
-        <li><a href="#vault">The Vault</a></li>
-        <li><a href="https://ailsa-risk-grader.vercel.app/" target="_blank">Risk Grader</a></li>
-        <li><a href="#purchase">Purchase</a></li>
-      </ul>
-    </div>
-
-    <div class="disclaimer-box">
-      <span class="disc-label">UK Legal Disclaimer</span>
-      <p class="disc-text">
-        This AI Compliance Vault is a pre-formatted digital template and educational framework designed to assist businesses in structuring their own internal AI governance records. Ailsa Studio is a digital product vendor, not a management consultancy, legal counsel, or insurance underwriter. The content, pre-populated text examples, and checklist metrics contained within this file do not constitute formal legal advice, compliance auditing, or binding regulatory opinions. While this asset is built to align with general 2026 UK AI governance principles, it has not been reviewed by a solicitor. Every business carries unique operational risks, and insurance criteria vary by broker. By downloading and using this product, you agree that Ailsa Studio accepts no liability for your firm's specific insurance outcomes, regulatory audits, or legal disputes. You are strongly advised to have your own legal counsel or qualified solicitor review your final policies and configurations before formal deployment or submission to third parties.
-      </p>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 Ailsa Studio. All rights reserved.</span>
-      <span style="color:rgba(138,155,176,.4)">Georgia · System Fonts · #00172D · #B87333</span>
-    </div>
-  </div>
-</footer>
-
-
-<script>
-  // STRIPE EXECUTION ENGINE
-  function handlePurchase() {
-    window.location.href = "https://buy.stripe.com/4gM28q6c91cAgbaeq97wA00";
-  }
-
-  // AUDIO TOUR ENGINE FOR AILSA
-  const audioAsset = document.getElementById('ailsaVoiceAsset');
-  const wrapper = document.getElementById('avatarWrapper');
-  const stateBadge = document.getElementById('avatarStateBadge');
-  const promptText = document.getElementById('avatarPromptText');
-
-  function toggleAilsaAudio() {
-    if (audioAsset.paused) {
-      audioAsset.play();
-      wrapper.classList.add('playing');
-      stateBadge.textContent = 'Ailsa · Speaking';
-      promptText.textContent = '⏸ Click to pause audio briefing';
-    } else {
-      audioAsset.pause();
-      wrapper.classList.remove('playing');
-      stateBadge.textContent = 'Ailsa · Paused';
-      promptText.textContent = '▶ Click to resume briefing';
-    }
-  }
-
-  // Auto-reset UI when audio track finishes cleanly
-  audioAsset.addEventListener('ended', () => {
-    wrapper.classList.remove('playing');
-    stateBadge.textContent = 'Ailsa · Offline';
-    promptText.textContent = '🔈 Click to listen to Ailsa (60s)';
-  });
-
-  // SMOOTH ANCHOR NAV LINKS
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
-      const el = document.querySelector(id);
-      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-    });
-  });
-</script>
-
-</body>
-</html>
+            <span class="avatar-
