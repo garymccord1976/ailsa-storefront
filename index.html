@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ailsa Studio — 2026 AI Compliance Shield</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
   <style>
-    /* Premium Variable Font Engine - Pulls exact cursive italic axes and enforces lining numbers */
-    @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600&display=swap');
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
     :root {
@@ -40,19 +40,19 @@
       opacity:.5;
     }
     
-    /* Editorial Headings using your original signature font */
+    /* Swapped completely to Playfair Display with strict lining number configuration */
     h1, h2, h3, h4 { 
-      font-family: 'Fraunces', Georgia, serif; 
+      font-family: 'Playfair Display', Georgia, serif; 
       font-weight: 700; 
       line-height: 1.15; 
-      font-variant-numeric: lining-nums; /* Keeps all number baseline heights flat */
+      font-variant-numeric: lining-nums;
     }
 
     h1 em, .hero h1 em {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: 'Playfair Display', Georgia, serif;
       font-style: italic;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--copper), var(--copper-light));
+      font-weight: 400; /* Original elegant weight for cursive swashes */
+      background: linear-gradient(135deg, var(--copper-light), var(--copper));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -87,8 +87,8 @@
       font-size:12px; color:var(--copper);
     }
     .nav-name {
-      font-family: 'Fraunces', serif; font-size:13px; font-weight:700;
-      color:var(--off-white); letter-spacing:.1em; text-transform:uppercase; display:block;
+      font-family: 'Playfair Display', serif; font-size:14px; font-weight:700;
+      color:var(--off-white); letter-spacing:.08em; text-transform:uppercase; display:block;
       font-variant-numeric: lining-nums;
     }
     .nav-sub { font-size:9px; color:var(--slate); letter-spacing:.07em; text-transform:uppercase; display:block; }
@@ -101,7 +101,7 @@
     }
     .btn-nav:hover { opacity:.85; }
 
-    /* HERO BLOCK STRUCTURE */
+    /* HERO */
     .hero { padding:6rem 0 5.5rem; position:relative; overflow:hidden; }
     .hero::after {
       content:''; position:absolute; top:-5%; left:50%; transform:translateX(-50%);
@@ -109,7 +109,7 @@
       background:radial-gradient(ellipse,rgba(184,115,51,.09) 0%,transparent 65%);
       pointer-events:none;
     }
-    .hero-split { display:grid; grid-template-columns:1.1fr 0.9fr; gap:3rem; align-items:center; }
+    .hero-split { display:grid; grid-template-columns:1.15fr 0.85fr; gap:3rem; align-items:center; }
     @media(max-width:900px) { .hero-split { grid-template-columns:1fr; gap:3rem; } .avatar-container { margin:0 auto; } }
 
     .eyebrow {
@@ -121,7 +121,7 @@
     }
     .eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--copper); animation:pulseDot 2s infinite; }
     .hero h1 {
-      font-size:clamp(2.2rem,4.5vw,3.5rem); font-weight:900;
+      font-size:clamp(2.4rem,4.5vw,3.6rem); font-weight:700;
       color:var(--off-white); margin-bottom:1.4rem; letter-spacing:-.01em;
     }
     .hero-sub { font-size:16px; color:var(--slate); line-height:1.75; margin-bottom:2.2rem; }
@@ -145,25 +145,23 @@
     }
     .btn-ghost:hover { border-color:var(--copper); background:var(--copper-dim); }
     
-    /* AVATAR FRAME - UNBRIDLED DISPLAY ENGINE */
+    /* AVATAR INTERACTIVE LAYER - COMPLETELY EXPOSED & SHARP */
     .avatar-container { position:relative; width:100%; max-width:380px; aspect-ratio:4/5; }
     .avatar-ripple {
-      position:absolute; inset:0; border-radius:24px; border:2px solid var(--copper);
+      position:absolute; inset:-4px; border-radius:20px; border:2px solid var(--copper);
       opacity:0; pointer-events:none; z-index:0;
     }
     .avatar-container.playing .avatar-ripple { animation:ripple 2s infinite ease-out; }
     
-    /* Flat presentation matrix to expose jacket styling edge-to-edge */
     .avatar-frame {
       width:100%; height:100%; position:relative; z-index:2; cursor:pointer;
+      border:1px solid rgba(184,115,51,0.15); border-radius:16px;
     }
     .avatar-img { 
-      width:100%; height:100%; object-fit:cover; display:block; border-radius:16px;
-      transition:filter 0.3s ease;
+      width:100%; height:100%; object-fit:cover; display:block; border-radius:15px;
     }
-    .avatar-container.playing .avatar-img { filter:brightness(0.9); }
     
-    /* Non-smothering floating interaction markers */
+    /* Floating absolute tags that completely avoid blocking her jacket lapels */
     .avatar-badge {
       position:absolute; top:1rem; left:1rem;
       display:inline-flex; align-items:center; gap:6px; background:rgba(0,23,45,0.85);
@@ -174,14 +172,15 @@
     .avatar-badge::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--copper); }
     .avatar-container.playing .avatar-badge::before { background:var(--green); animation:pulseDot 1s infinite; }
     
-    .avatar-control-bar {
-      position:absolute; bottom:0; left:0; right:0;
-      background:linear-gradient(to top, rgba(0,23,45,0.95) 0%, rgba(0,23,45,0.4) 80%, transparent 100%);
-      padding:3rem 1.25rem 1.25rem; z-index:3; display:flex; flex-direction:column; gap:2px;
-      border-bottom-left-radius:16px; border-bottom-right-radius:16px;
+    /* Semi-transparent control capsule floating neatly over the bottom artwork boundary */
+    .avatar-control-capsule {
+      position:absolute; bottom:1rem; left:1rem; right:1rem;
+      background:rgba(0,23,45,0.8); border:1px solid var(--border);
+      padding:0.75rem 1rem; border-radius:12px; backdrop-filter:blur(8px);
+      z-index:3; display:flex; align-items:center; justify-content:space-between; gap:10px;
     }
-    .avatar-title { font-family: 'Fraunces', serif; font-size:1.1rem; color:var(--off-white); font-variant-numeric: lining-nums; }
-    .avatar-prompt { font-size:12px; color:var(--copper-light); display:flex; align-items:center; gap:4px; font-weight:500; }
+    .avatar-title { font-family: 'Playfair Display', serif; font-size:1.05rem; color:var(--off-white); font-weight:700; }
+    .avatar-prompt { font-size:11px; color:var(--copper-light); font-weight:600; text-transform:uppercase; letter-spacing:0.02em; }
 
     .trust-row { margin-top:2.5rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; border-top:1px solid var(--border-sub); padding-top:1.5rem; }
     .trust-item { display:flex; align-items:center; gap:7px; font-size:12px; color:var(--slate); }
@@ -193,7 +192,7 @@
       background:rgba(255,255,255,.02); padding:2rem 0;
     }
     .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:1.5rem; text-align:center; }
-    .stat-v { font-family: 'Fraunces', serif; font-size:2rem; font-weight:900; color:var(--copper); display:block; font-variant-numeric: lining-nums; }
+    .stat-v { font-family: 'Playfair Display', serif; font-size:2rem; font-weight:900; color:var(--copper); display:block; font-variant-numeric: lining-nums; }
     .stat-l { font-size:10px; color:var(--slate); text-transform:uppercase; letter-spacing: .08em; }
 
     /* SECTION HDR */
@@ -241,132 +240,4 @@
 
     /* PURCHASE */
     .purchase-bg { background:rgba(255,255,255,.01); }
-    .purchase-grid { display:grid; grid-template-columns:1fr 1.35fr; gap:3rem; align-items:start; }
-    @media(max-width:780px){ .purchase-grid{grid-template-columns:1fr} .pricing-card{position:static} }
-    .purchase-info h2 { font-size:clamp(1.6rem,3.5vw,2.2rem); margin-bottom:1.1rem; }
-    .included-list { margin-top:1.75rem; display:flex; flex-direction:column; gap:10px; }
-    .included-item {
-      display:flex; align-items:flex-start; gap:12px; padding:1rem;
-      background:rgba(255,255,255,.02); border:1px solid var(--border-sub); border-radius:8px;
-    }
-    .ii-icon { font-size:15px; color:var(--copper); flex-shrink:0; margin-top:2px; }
-    .ii-body h4 { font-size:13px; font-weight:600; color:var(--off-white); margin-bottom:2px; }
-    .ii-body p  { font-size:12px; color:var(--slate); line-height:1.5; }
-    .gk-box {
-      border:1px solid rgba(245,158,11,.22); background:rgba(245,158,11,.04);
-      border-radius:9px; padding:1.1rem 1.4rem; margin-top:1.4rem;
-      font-size:12px; color:var(--slate); line-height:1.7;
-      font-variant-numeric: lining-nums;
-    }
-    .gk-box strong { color:var(--off-white); }
-
-    /* PRICING CARD */
-    .pricing-card {
-      background:var(--navy-mid); border:1px solid var(--border);
-      border-radius:14px; padding:2.25rem; position:sticky; top:88px;
-    }
-    .pricing-top { border-bottom:1px solid var(--border-sub); padding-bottom:1.4rem; margin-bottom:1.4rem; }
-    .p-label { font-size:9px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.4rem; display:block; font-weight:600; }
-    .p-product { font-size:1.05rem; font-weight:700; color:var(--off-white); margin-bottom:1.1rem; }
-    .p-amount  { display:flex; align-items:baseline; gap:3px; }
-    .p-cur  { font-family: 'Fraunces', serif; font-size:1.4rem; color:var(--copper); }
-    .p-val  { font-family: 'Fraunces', serif; font-size:3.5rem; font-weight:900; color:var(--off-white); line-height:1; }
-    .p-note { font-size:11px; color:var(--slate); margin-top:4px; display:block; }
-    .p-features { margin-bottom:1.6rem; }
-    .p-feat {
-      display:flex; align-items:center; gap:10px; padding:8px 0;
-      border-bottom:1px solid var(--border-sub);
-      font-size:13px; color:var(--slate); font-family: 'Inter', sans-serif;
-      font-variant-numeric: lining-nums;
-    }
-    .p-feat:last-child { border-bottom:none; }
-    .p-feat .ck { color:var(--green); font-size:13px; }
-    .btn-buy {
-      width:100%; padding:1rem;
-      background:linear-gradient(135deg,var(--copper),var(--copper-light));
-      color:var(--navy); border:none; border-radius:8px;
-      font-family: 'Inter', sans-serif; font-size:15px; font-weight:600; cursor:pointer;
-      letter-spacing:.04em; box-shadow:0 4px 28px rgba(184,115,51,.3);
-      display:flex; align-items:center; justify-content:center; gap:8px;
-      transition:opacity .2s, transform .15s;
-    }
-    .btn-buy:hover { opacity:.87; transform:translateY(-1px); }
-    .p-guarantee { margin-top:.85rem; text-align:center; font-size:11px; color:var(--slate); }
-
-    /* FOOTER */
-    footer { border-top:1px solid var(--border-sub); padding:3rem 0 2rem; }
-    .footer-top { display:flex; align-items:flex-start; justify-content:space-between; gap:2rem; flex-wrap:wrap; margin-bottom:2.25rem; }
-    .f-name { font-family: 'Fraunces', serif; font-size:14px; font-weight:700; color:var(--off-white); letter-spacing:.1em; text-transform:uppercase; display:block; margin-bottom:.3rem; }
-    .f-tag  { font-size:10px; color:var(--slate); letter-spacing:.06em; text-transform:uppercase; }
-    .f-links { display:flex; gap:1.5rem; flex-wrap:wrap; list-style:none; }
-    .f-links a { font-size:12px; color:var(--slate); text-decoration:none; transition:color .2s; }
-    .f-links a:hover { color:var(--copper); }
-    .disclaimer-box { background:rgba(255,255,255,.02); border:1px solid var(--border-sub); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:2rem; }
-    .disc-label { font-size:9px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.1em; text-transform:uppercase; margin-bottom:7px; display:block; font-weight:600; }
-    .disc-text  { font-size:11px; color:rgba(138,155,176,.65); line-height:1.7; font-variant-numeric: lining-nums; }
-    .footer-bottom { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-size:11px; color:var(--slate); border-top:1px solid var(--border-sub); padding-top:1.4rem; }
-  </style>
-</head>
-<body>
-
-<audio id="ailsaVoiceAsset" src="ailsa-voice.mp3" preload="auto"></audio>
-
-<nav>
-  <div class="container">
-    <div class="nav-inner">
-      <a href="#" class="nav-brand">
-        <div class="nav-shield">🛡</div>
-        <div>
-          <span class="nav-name">Ailsa Studio</span>
-          <span class="nav-sub">AI Compliance Shield</span>
-        </div>
-      </a>
-      <a href="#purchase" class="btn-nav">Get the Vault →</a>
-    </div>
-  </div>
-</nav>
-
-
-<section class="hero">
-  <div class="container">
-    <div class="hero-split">
-      
-      <div>
-        <div class="eyebrow fu"><span class="eyebrow-dot"></span> 2026 UK AI Governance Framework</div>
-        <h1 class="fu1">Is your business <em>insurable</em><br/>under the 2026 AI standard?</h1>
-        <p class="hero-sub fu2">
-          Every UK SME using AI tools faces a new category of Professional Indemnity risk in 2026.
-          The Ailsa Compliance Shield is the complete governance infrastructure your PI insurer will ask for.
-        </p>
-        <div class="hero-actions fu3">
-          <a href="https://ailsa-risk-grader.vercel.app/" target="_blank" rel="noopener" class="btn-primary">⚡ Run Free Risk Assessment</a>
-          <a href="#vault" class="btn-ghost">See what's included ↓</a>
-        </div>
-      </div>
-
-      <div class="avatar-container fu3" id="avatarWrapper">
-        <div class="avatar-ripple"></div>
-        <span class="avatar-badge" id="avatarStateBadge">Ailsa · Offline</span>
-        <div class="avatar-frame" onclick="toggleAilsaAudio()">
-          <img src="ailsa-avatar.jpg" alt="Ailsa — AI Compliance Guide" class="avatar-img" />
-          <div class="avatar-control-bar">
-            <h3 class="avatar-title">Meet Your AI Guide</h3>
-            <span class="avatar-prompt" id="avatarPromptText">🔈 Click to listen to Ailsa (60s)</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="trust-row fu4">
-      <div class="trust-item"><span class="trust-tick">✓</span> Built for UK SMEs</div>
-      <div class="trust-item"><span class="trust-tick">✓</span> Aligned to Aviva &amp; Hiscox PI criteria</div>
-      <div class="trust-item"><span class="trust-tick">✓</span> UK GDPR &amp; ICO compliant framework</div>
-      <div class="trust-item"><span class="trust-tick">✓</span> Instant digital download</div>
-    </div>
-  </div>
-</section>
-
-
-<div class="stats-bar">
-  <div class
+    .purchase-grid { display:grid; grid-template-columns
