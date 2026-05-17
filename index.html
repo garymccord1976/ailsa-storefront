@@ -88,7 +88,7 @@
     }
     .nav-name {
       font-family: 'Playfair Display', serif; font-size:14px; font-weight:700;
-      color:var(--off-white); letter-spacing:.08em; text-transform:uppercase; display:block;
+      color:var(--off-white); letter-spacing Barbells:.08em; text-transform:uppercase; display:block;
       font-variant-numeric: lining-nums;
     }
     .nav-sub { font-size:9px; color:var(--slate); letter-spacing:.07em; text-transform:uppercase; display:block; }
@@ -145,7 +145,7 @@
     }
     .btn-ghost:hover { border-color:var(--copper); background:var(--copper-dim); }
     
-    /* AVATAR INTERACTIVE LAYER */
+    /* AVATAR INTERACTIVE LAYER - FACE UNMASKED SETUP */
     .avatar-container { position:relative; width:100%; max-width:380px; aspect-ratio:4/5; }
     .avatar-ripple {
       position:absolute; inset:-4px; border-radius:20px; border:2px solid var(--copper);
@@ -157,50 +157,14 @@
       width:100%; height:100%; position:relative; z-index:2; cursor:pointer;
       border:1px solid rgba(184,115,51,0.2); border-radius:16px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .avatar-frame:hover { border-color: var(--copper); box-shadow: 0 20px 40px rgba(184,115,51,0.15); }
     .avatar-container.playing .avatar-frame { border-color: var(--green); }
     
     .avatar-img { 
       width:100%; height:100%; object-fit:cover; display:block; border-radius:15px;
-      transition: filter 0.3s ease;
       background: var(--navy-mid);
     }
-    .avatar-frame:hover .avatar-img { filter: brightness(0.75); }
-    .avatar-container.playing .avatar-img { filter: brightness(0.7); }
     
-    .avatar-center-play-deck {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 12px; z-index: 4; pointer-events: none;
-    }
-    .avatar-play-btn {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: rgba(0, 23, 45, 0.85); border: 2px solid var(--copper);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--off-white); font-size: 20px; padding-left: 4px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .avatar-frame:hover .avatar-play-btn {
-      transform: scale(1.1); background: linear-gradient(135deg, var(--copper), var(--copper-light));
-      color: var(--navy); border-color: transparent;
-    }
-    .avatar-container.playing .avatar-play-btn {
-      padding-left: 0; background: rgba(34, 197, 148, 0.9); border-color: transparent; color: var(--navy);
-    }
-    .avatar-play-txt {
-      font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--off-white); background: rgba(0, 23, 45, 0.75); padding: 4px 12px; border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(4px);
-      transition: opacity 0.3s ease;
-    }
-    .avatar-container.playing .avatar-frame:not(:hover) .avatar-play-btn,
-    .avatar-container.playing .avatar-frame:not(:hover) .avatar-play-txt {
-      opacity: 0.4;
-    }
-
     .avatar-badge {
       position:absolute; top:1rem; left:1rem;
       display:inline-flex; align-items:center; gap:6px; background:rgba(0,23,45,0.85);
@@ -211,15 +175,35 @@
     .avatar-badge::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--copper); }
     .avatar-container.playing .avatar-badge::before { background:var(--green); animation:pulseDot 1s infinite; }
     
+    /* Dedicated Control Capsule deck handling playback interaction */
     .avatar-control-capsule {
       position:absolute; bottom:1rem; left:1rem; right:1rem;
       background:rgba(0,23,45,0.85); border:1px solid var(--border);
-      padding:0.75rem 1rem; border-radius:12px; backdrop-filter:blur(8px);
-      z-index:3; display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:0.6rem 1rem; border-radius:12px; backdrop-filter:blur(8px);
+      z-index:3; display:flex; align-items:center; gap:12px;
+      transition: border-color 0.2s;
     }
-    .avatar-title { font-family: 'Playfair Display', serif; font-size:1.05rem; color:var(--off-white); font-weight:700; }
+    .avatar-frame:hover .avatar-control-capsule { border-color: var(--copper); }
+    .avatar-container.playing .avatar-control-capsule { border-color: var(--green); }
+
+    .avatar-play-icon-btn {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--copper), var(--copper-light));
+      color: var(--navy); display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: bold; padding-left: 2px; flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .avatar-frame:hover .avatar-play-icon-btn { transform: scale(1.08); }
+    .avatar-container.playing .avatar-play-icon-btn { 
+      background: var(--green); padding-left: 0; 
+    }
+
+    .avatar-text-block { flex: 1; min-width: 0; }
+    .avatar-title { font-family: 'Playfair Display', serif; font-size:1.05rem; color:var(--off-white); font-weight:700; line-height: 1.2; }
+    .avatar-prompt { font-size: 11px; color: var(--slate); font-weight: 500; }
+    .avatar-container.playing .avatar-prompt { color: var(--green); }
     
-    .avatar-wave-container { display: flex; align-items: flex-end; gap: 3px; height: 16px; width: 24px; opacity: 0.2; transition: opacity 0.3s; }
+    .avatar-wave-container { display: flex; align-items: flex-end; gap: 3px; height: 14px; width: 24px; opacity: 0.15; flex-shrink: 0; }
     .avatar-container.playing .avatar-wave-container { opacity: 1; }
     .wave-bar { width: 3px; height: 100%; background: var(--copper-light); border-radius: 1px; transform-origin: bottom; }
     .avatar-container.playing .wave-bar { background: var(--green); animation: bounceBar 1s infinite ease-in-out; }
@@ -395,14 +379,13 @@
         
         <div class="avatar-frame" onclick="toggleAilsaAudio()">
           <img src="ailsa-avatar.jpg" alt="Ailsa — AI Compliance Guide" class="avatar-img" />
-          
-          <div class="avatar-center-play-deck">
-            <div class="avatar-play-btn" id="centerPlayButton">▶</div>
-            <span class="avatar-play-txt" id="centerPlayText">Listen to Ailsa</span>
-          </div>
 
           <div class="avatar-control-capsule">
-            <h3 class="avatar-title">Ailsa Briefing (60s)</h3>
+            <div class="avatar-play-icon-btn" id="capsulePlayIcon">▶</div>
+            <div class="avatar-text-block">
+              <h3 class="avatar-title">Ailsa Briefing</h3>
+              <span class="avatar-prompt" id="capsulePromptText">Click to play briefing (60s)</span>
+            </div>
             <div class="avatar-wave-container">
               <div class="wave-bar wb-1"></div>
               <div class="wave-bar wb-2"></div>
@@ -550,3 +533,109 @@
 
       <div>
         <div class="pricing-card">
+          <div class="pricing-top">
+            <span class="p-label">One-Time Digital Purchase</span>
+            <div class="p-product">The 2026 AI Compliance Vault</div>
+            <div class="p-amount">
+              <span class="p-cur">£</span>
+              <span class="p-val">495</span>
+            </div>
+            <span class="p-note">Single licence · Instant download · Google Sheets format</span>
+          </div>
+          <div class="p-features">
+            <div class="p-feat"><span class="ck">✓</span> Staff AI Handbook (Tab 1, 7 sections)</div>
+            <div class="p-feat"><span class="ck">✓</span> Insurance Readiness Checklist (Tab 2)</div>
+            <div class="p-feat"><span class="ck">✓</span> AI Risk Register (Tab 3)</div>
+            <div class="p-feat"><span class="ck">✓</span> 90-Day Roadmap (Tab 4, 12 milestones)</div>
+            <div class="p-feat"><span class="ck">✓</span> Risk Grader WebApp access</div>
+            <div class="p-feat"><span class="ck">✓</span> Auto-classification formulas &amp; formatting</div>
+            <div class="p-feat"><span class="ck">✓</span> 10 pre-populated AI tool sample rows</div>
+            <div class="p-feat"><span class="ck">✓</span> UK GDPR &amp; ICO-aligned policy language</div>
+          </div>
+          <button class="btn-buy" onclick="handlePurchase()">🛡 Buy Now — £495</button>
+          <p class="p-guarantee">Instant access on payment · No subscription · VAT may apply</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <span class="f-name">Ailsa Studio</span>
+        <span class="f-tag">AI Compliance Shield · UK Digital Product Vendor</span>
+      </div>
+      <ul class="f-links">
+        <li><a href="#vault">The Vault</a></li>
+        <li><a href="https://ailsa-risk-grader.vercel.app/" target="_blank">Risk Grader</a></li>
+        <li><a href="#purchase">Purchase</a></li>
+      </ul>
+    </div>
+
+    <div class="disclaimer-box">
+      <span class="disc-label">UK Legal Disclaimer</span>
+      <p class="disc-text">
+        This AI Compliance Vault is a pre-formatted digital template and educational framework designed to assist businesses in structuring their own internal AI governance records. Ailsa Studio is a digital product vendor, not a management consultancy, legal counsel, or insurance underwriter. The content, pre-populated text examples, and checklist metrics contained within this file do not constitute formal legal advice, compliance auditing, or binding regulatory opinions. While this asset is built to align with general 2026 UK AI governance principles, it has not been reviewed by a solicitor. Every business carries unique operational risks, and insurance criteria vary by broker. By downloading and using this product, you agree that Ailsa Studio accepts no liability for your firm's specific insurance outcomes, regulatory audits, or legal disputes. You are strongly advised to have your own legal counsel or qualified solicitor review your final policies and configurations before formal deployment or submission to third parties.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Ailsa Studio. All rights reserved.</span>
+      <span style="color:rgba(138,155,176,.4)">Playfair Display · Inter · #00172D · #B87333</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  function handlePurchase() {
+    window.location.href = "https://buy.stripe.com/4gM28q6c91cAgbaeq97wA00";
+  }
+
+  const audioAsset = document.getElementById('ailsaVoiceAsset');
+  const wrapper = document.getElementById('avatarWrapper');
+  const stateBadge = document.getElementById('avatarStateBadge');
+  const capsuleBtn = document.getElementById('capsulePlayIcon');
+  const capsuleTxt = document.getElementById('capsulePromptText');
+
+  function toggleAilsaAudio() {
+    if (!audioAsset) return;
+    if (audioAsset.paused) {
+      audioAsset.play().catch(e => console.log("Playback engine tracking initialization route resolved."));
+      wrapper.classList.add('playing');
+      stateBadge.textContent = 'Ailsa · Speaking';
+      capsuleBtn.textContent = '‖';
+      capsuleTxt.textContent = 'Playing audio briefing...';
+    } else {
+      audioAsset.pause();
+      wrapper.classList.remove('playing');
+      stateBadge.textContent = 'Ailsa · Paused';
+      capsuleBtn.textContent = '▶';
+      capsuleTxt.textContent = 'Click to resume briefing';
+    }
+  }
+
+  if (audioAsset) {
+    audioAsset.addEventListener('ended', () => {
+      wrapper.classList.remove('playing');
+      stateBadge.textContent = 'Ailsa · Offline';
+      capsuleBtn.textContent = '▶';
+      capsuleTxt.textContent = 'Click to play briefing (60s)';
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      const el = document.querySelector(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
