@@ -24,7 +24,7 @@
     html { scroll-behavior: smooth; }
     body {
       background: var(--navy); color: var(--off-white);
-      font-family: 'Inter', sans-serif; font-size: 15px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 15px;
       line-height: 1.6; overflow-x: hidden;
     }
     body::before {
@@ -32,7 +32,7 @@
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
       opacity:.5;
     }
-    h1,h2,h3,h4 { font-family:'Fraunces',Georgia,serif; font-weight:700; line-height:1.15; }
+    h1,h2,h3,h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; line-height: 1.15; }
     .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; position:relative; z-index:1; }
     .section { padding:6rem 0; }
 
@@ -62,7 +62,7 @@
       font-size:12px; color:var(--copper);
     }
     .nav-name {
-      font-family:'Fraunces',serif; font-size:13px; font-weight:700;
+      font-family: 'Fraunces', Georgia, serif; font-size:13px; font-weight:700;
       color:var(--off-white); letter-spacing:.1em; text-transform:uppercase; display:block;
     }
     .nav-sub { font-size:9px; color:var(--slate); letter-spacing:.07em; text-transform:uppercase; display:block; }
@@ -70,7 +70,7 @@
       display:inline-flex; align-items:center; gap:6px; padding:.5rem 1.1rem;
       background:linear-gradient(135deg,var(--copper),var(--copper-light));
       color:var(--navy); border:none; border-radius:6px;
-      font-family:'Inter',sans-serif; font-size:12px; font-weight:600;
+      font-family: 'Inter', sans-serif; font-size:12px; font-weight:600;
       letter-spacing:.05em; cursor:pointer; text-decoration:none; transition:opacity .2s;
     }
     .btn-nav:hover { opacity:.85; }
@@ -88,7 +88,7 @@
 
     .eyebrow {
       display:inline-flex; align-items:center; gap:8px;
-      font-size:10px; font-family:'Inter',sans-serif;
+      font-size:10px; font-family: 'Inter', sans-serif;
       color:var(--copper); letter-spacing:.12em; text-transform:uppercase;
       border:1px solid var(--border); background:var(--copper-dim);
       padding:4px 14px; border-radius:20px; margin-bottom:1.75rem;
@@ -110,7 +110,7 @@
       display:inline-flex; align-items:center; gap:8px; padding:.9rem 2rem;
       background:linear-gradient(135deg,var(--copper),var(--copper-light));
       color:var(--navy); border:none; border-radius:8px;
-      font-family:'Inter',sans-serif; font-size:14px; font-weight:600;
+      font-family: 'Inter', sans-serif; font-size:14px; font-weight:600;
       letter-spacing:.04em; cursor:pointer; text-decoration:none;
       box-shadow:0 4px 28px rgba(184,115,51,.32); transition:opacity .2s, transform .2s;
     }
@@ -119,7 +119,7 @@
       display:inline-flex; align-items:center; gap:8px; padding:.9rem 1.75rem;
       background:transparent; color:var(--off-white);
       border:1px solid rgba(255,255,255,.13); border-radius:8px;
-      font-family:'Inter',sans-serif; font-size:14px; font-weight:500;
+      font-family: 'Inter', sans-serif; font-size:14px; font-weight:500;
       cursor:pointer; text-decoration:none; transition:border-color .2s, background .2s;
     }
     .btn-ghost:hover { border-color:var(--copper); background:var(--copper-dim); }
@@ -156,7 +156,7 @@
     .avatar-badge::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--copper); }
     .avatar-container.playing .avatar-badge::before { background:var(--green); animation:pulseDot 1s infinite; }
     
-    .avatar-title { font-family:'Fraunces',serif; font-size:1.15rem; color:var(--off-white); margin-bottom:0.25rem; }
+    .avatar-title { font-family: 'Fraunces', Georgia, serif; font-size:1.15rem; color:var(--off-white); margin-bottom:0.25rem; }
     .avatar-prompt { font-size:12px; color:var(--copper-light); display:flex; align-items:center; gap:4px; font-weight:500; }
 
     .trust-row { margin-top:2.5rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; border-top:1px solid var(--border-sub); padding-top:1.5rem; }
@@ -169,11 +169,11 @@
       background:rgba(255,255,255,.02); padding:2rem 0;
     }
     .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:1.5rem; text-align:center; }
-    .stat-v { font-family:'Fraunces',serif; font-size:2rem; font-weight:900; color:var(--copper); display:block; }
-    .stat-l { font-size:10px; color:var(--slate); text-transform:uppercase; letter-spacing:.08em; }
+    .stat-v { font-family: 'Fraunces', Georgia, serif; font-size:2rem; font-weight:900; color:var(--copper); display:block; }
+    .stat-l { font-size:10px; color:var(--slate); text-transform:uppercase; letter-spacing: .08em; }
 
     /* SECTION HDR */
-    .sec-eye { font-size:10px; font-family:'Inter',sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.6rem; display:block; }
+    .sec-eye { font-size:10px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.6rem; display:block; }
     .sec-title { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:var(--off-white); margin-bottom:1rem; max-width:600px; }
     .sec-body  { font-size:15px; color:var(--slate); max-width:500px; line-height:1.75; }
 
@@ -191,11 +191,11 @@
     }
     .asset-card:hover { border-color:var(--border); background:rgba(184,115,51,.04); transform:translateY(-2px); }
     .asset-card:hover::before { opacity:1; }
-    .asset-num { font-size:9px; font-family:'Inter',sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.85rem; display:block; }
+    .asset-num { font-size:9px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.85rem; display:block; }
     .asset-icon { width:38px; height:38px; border-radius:8px; background:var(--copper-dim); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:17px; margin-bottom:.9rem; }
     .asset-card h3 { font-size:1.05rem; font-weight:700; color:var(--off-white); margin-bottom:.45rem; }
     .asset-card p  { font-size:13px; color:var(--slate); line-height:1.65; margin-bottom:1rem; }
-    .badge { display:inline-flex; align-items:center; gap:5px; font-size:10px; font-family:'Inter',sans-serif; padding:3px 10px; border-radius:4px; font-weight:600; letter-spacing:.04em; }
+    .badge { display:inline-flex; align-items:center; gap:5px; font-size:10px; font-family: 'Inter', sans-serif; padding:3px 10px; border-radius:4px; font-weight:600; letter-spacing:.04em; }
     .badge-a { background:#3b1f00; color:#f59e0b; }
     .badge-b { background:#1e3a5f; color:#60a5fa; }
     .badge-c { background:#1a1051; color:#a78bfa; }
@@ -210,7 +210,7 @@
     .grader-strip h3 { font-size:1.35rem; color:var(--off-white); margin-bottom:.45rem; }
     .grader-strip p  { font-size:13px; color:var(--slate); max-width:400px; }
     .score-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:1.1rem; }
-    .score-chip { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-family:'Inter',sans-serif; padding:4px 12px; border-radius:6px; font-weight:500; }
+    .score-chip { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-family: 'Inter', sans-serif; padding:4px 12px; border-radius:6px; font-weight:500; }
     .sc-g { background:rgba(34,197,94,.1); color:#22c55e; border:1px solid rgba(34,197,94,.2); }
     .sc-a { background:rgba(245,158,11,.1); color:#f59e0b; border:1px solid rgba(245,158,11,.2); }
     .sc-r { background:rgba(239,68,68,.1); color:#ef4444; border:1px solid rgba(239,68,68,.2); }
@@ -241,17 +241,17 @@
       border-radius:14px; padding:2.25rem; position:sticky; top:88px;
     }
     .pricing-top { border-bottom:1px solid var(--border-sub); padding-bottom:1.4rem; margin-bottom:1.4rem; }
-    .p-label { font-size:9px; font-family:'Inter',sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.4rem; display:block; font-weight:600; }
+    .p-label { font-size:9px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.4rem; display:block; font-weight:600; }
     .p-product { font-size:1.05rem; font-weight:700; color:var(--off-white); margin-bottom:1.1rem; }
     .p-amount  { display:flex; align-items:baseline; gap:3px; }
-    .p-cur  { font-family:'Fraunces',serif; font-size:1.4rem; color:var(--copper); }
-    .p-val  { font-family:'Fraunces',serif; font-size:3.5rem; font-weight:900; color:var(--off-white); line-height:1; }
+    .p-cur  { font-family: 'Fraunces', Georgia, serif; font-size:1.4rem; color:var(--copper); }
+    .p-val  { font-family: 'Fraunces', Georgia, serif; font-size:3.5rem; font-weight:900; color:var(--off-white); line-height:1; }
     .p-note { font-size:11px; color:var(--slate); margin-top:4px; display:block; }
     .p-features { margin-bottom:1.6rem; }
     .p-feat {
       display:flex; align-items:center; gap:10px; padding:8px 0;
       border-bottom:1px solid var(--border-sub);
-      font-size:13px; color:var(--slate); font-family:'Inter',sans-serif;
+      font-size:13px; color:var(--slate); font-family: 'Inter', sans-serif;
     }
     .p-feat:last-child { border-bottom:none; }
     .p-feat .ck { color:var(--green); font-size:13px; }
@@ -259,7 +259,7 @@
       width:100%; padding:1rem;
       background:linear-gradient(135deg,var(--copper),var(--copper-light));
       color:var(--navy); border:none; border-radius:8px;
-      font-family:'Inter',sans-serif; font-size:15px; font-weight:600; cursor:pointer;
+      font-family: 'Inter', sans-serif; font-size:15px; font-weight:600; cursor:pointer;
       letter-spacing:.04em; box-shadow:0 4px 28px rgba(184,115,51,.3);
       display:flex; align-items:center; justify-content:center; gap:8px;
       transition:opacity .2s, transform .15s;
@@ -270,13 +270,13 @@
     /* FOOTER */
     footer { border-top:1px solid var(--border-sub); padding:3rem 0 2rem; }
     .footer-top { display:flex; align-items:flex-start; justify-content:space-between; gap:2rem; flex-wrap:wrap; margin-bottom:2.25rem; }
-    .f-name { font-family:'Fraunces',serif; font-size:14px; font-weight:700; color:var(--off-white); letter-spacing:.1em; text-transform:uppercase; display:block; margin-bottom:.3rem; }
+    .f-name { font-family: 'Fraunces', Georgia, serif; font-size:14px; font-weight:700; color:var(--off-white); letter-spacing:.1em; text-transform:uppercase; display:block; margin-bottom:.3rem; }
     .f-tag  { font-size:10px; color:var(--slate); letter-spacing:.06em; text-transform:uppercase; }
     .f-links { display:flex; gap:1.5rem; flex-wrap:wrap; list-style:none; }
     .f-links a { font-size:12px; color:var(--slate); text-decoration:none; transition:color .2s; }
     .f-links a:hover { color:var(--copper); }
     .disclaimer-box { background:rgba(255,255,255,.02); border:1px solid var(--border-sub); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:2rem; }
-    .disc-label { font-size:9px; font-family:'Inter',sans-serif; color:var(--copper); letter-spacing:.1em; text-transform:uppercase; margin-bottom:7px; display:block; font-weight:600; }
+    .disc-label { font-size:9px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.1em; text-transform:uppercase; margin-bottom:7px; display:block; font-weight:600; }
     .disc-text  { font-size:11px; color:rgba(138,155,176,.65); line-height:1.7; }
     .footer-bottom { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-size:11px; color:var(--slate); border-top:1px solid var(--border-sub); padding-top:1.4rem; }
   </style>
@@ -417,156 +417,4 @@
   <div class="container">
     <div class="purchase-grid">
 
-      <div class="purchase-info">
-        <span class="sec-eye">Purchase</span>
-        <h2>The 2026 AI Compliance Vault</h2>
-        <p style="color:var(--slate);font-size:15px;line-height:1.75;">A complete, pre-structured Google Sheets vault containing all four governance assets, formatted for immediate use and PI insurance submission.</p>
-
-        <div class="included-list">
-          <div class="included-item">
-            <span class="ii-icon">📖</span>
-            <div class="ii-body">
-              <h4>Staff AI Handbook (Tab 1)</h4>
-              <p>7 policy sections, Shadow AI prohibition, HITL requirements, UK GDPR response, staff sign-off table.</p>
-            </div>
-          </div>
-          <div class="included-item">
-            <span class="ii-icon">✅</span>
-            <div class="ii-body">
-              <h4>Insurance Readiness Checklist (Tab 2)</h4>
-              <p>15 checkpoints, PI-weighted scoring to 20, Auto-Amber gatekeeper, live verdict formula.</p>
-            </div>
-          </div>
-          <div class="included-item">
-            <span class="ii-icon">📋</span>
-            <div class="ii-body">
-              <h4>AI Risk Register (Tab 3)</h4>
-              <p>12-column schema, 10 sample rows, auto-classification formula, conditional formatting rules.</p>
-            </div>
-          </div>
-          <div class="included-item">
-            <span class="ii-icon">🗺</span>
-            <div class="ii-body">
-              <h4>90-Day Roadmap (Tab 4)</h4>
-              <p>12 milestones, phase-coded status, Red/Amber/Green formatting, evidence requirements column.</p>
-            </div>
-          </div>
-          <div class="included-item">
-            <span class="ii-icon">⚡</span>
-            <div class="ii-body">
-              <h4>Risk Grader WebApp Access</h4>
-              <p>Hosted interactive scoring tool — use as a lead generation front door or share directly with clients.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="gk-box">
-          <strong>⚠ The Auto-Amber Gatekeeper:</strong> Under the 2026 UK PI insurance framework, a business without an AI liability clause in client contracts cannot achieve a Green insurability score — regardless of all other governance measures. CP-10 is the first asset your broker will examine. The Vault is structured around this constraint.
-        </div>
-      </div>
-
-      <div>
-        <div class="pricing-card">
-          <div class="pricing-top">
-            <span class="p-label">One-Time Digital Purchase</span>
-            <div class="p-product">The 2026 AI Compliance Vault</div>
-            <div class="p-amount">
-              <span class="p-cur">£</span>
-              <span class="p-val">495</span>
-            </div>
-            <span class="p-note">Single licence · Instant download · Google Sheets format</span>
-          </div>
-          <div class="p-features">
-            <div class="p-feat"><span class="ck">✓</span> Staff AI Handbook (Tab 1, 7 sections)</div>
-            <div class="p-feat"><span class="ck">✓</span> Insurance Readiness Checklist (Tab 2)</div>
-            <div class="p-feat"><span class="ck">✓</span> AI Risk Register (Tab 3)</div>
-            <div class="p-feat"><span class="ck">✓</span> 90-Day Roadmap (Tab 4, 12 milestones)</div>
-            <div class="p-feat"><span class="ck">✓</span> Risk Grader WebApp access</div>
-            <div class="p-feat"><span class="ck">✓</span> Auto-classification formulas &amp; formatting</div>
-            <div class="p-feat"><span class="ck">✓</span> 10 pre-populated AI tool sample rows</div>
-            <div class="p-feat"><span class="ck">✓</span> UK GDPR &amp; ICO-aligned policy language</div>
-          </div>
-          <button class="btn-buy" onclick="handlePurchase()">🛡 Buy Now — £495</button>
-          <p class="p-guarantee">Instant access on payment · No subscription · VAT may apply</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div>
-        <span class="f-name">Ailsa Studio</span>
-        <span class="f-tag">AI Compliance Shield · UK Digital Product Vendor</span>
-      </div>
-      <ul class="f-links">
-        <li><a href="#vault">The Vault</a></li>
-        <li><a href="https://ailsa-risk-grader.vercel.app/" target="_blank">Risk Grader</a></li>
-        <li><a href="#purchase">Purchase</a></li>
-      </ul>
-    </div>
-
-    <div class="disclaimer-box">
-      <span class="disc-label">UK Legal Disclaimer</span>
-      <p class="disc-text">
-        This AI Compliance Vault is a pre-formatted digital template and educational framework designed to assist businesses in structuring their own internal AI governance records. Ailsa Studio is a digital product vendor, not a management consultancy, legal counsel, or insurance underwriter. The content, pre-populated text examples, and checklist metrics contained within this file do not constitute formal legal advice, compliance auditing, or binding regulatory opinions. While this asset is built to align with general 2026 UK AI governance principles, it has not been reviewed by a solicitor. Every business carries unique operational risks, and insurance criteria vary by broker. By downloading and using this product, you agree that Ailsa Studio accepts no liability for your firm's specific insurance outcomes, regulatory audits, or legal disputes. You are strongly advised to have your own legal counsel or qualified solicitor review your final policies and configurations before formal deployment or submission to third parties.
-      </p>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 Ailsa Studio. All rights reserved.</span>
-      <span style="color:rgba(138,155,176,.4)">Fraunces · Inter · #00172D · #B87333</span>
-    </div>
-  </div>
-</footer>
-
-
-<script>
-  // STRIPE EXECUTION ENGINE
-  function handlePurchase() {
-    window.location.href = "https://buy.stripe.com/4gM28q6c91cAgbaeq97wA00";
-  }
-
-  // AUDIO TOUR ENGINE FOR AILSA
-  const audioAsset = document.getElementById('ailsaVoiceAsset');
-  const wrapper = document.getElementById('avatarWrapper');
-  const stateBadge = document.getElementById('avatarStateBadge');
-  const promptText = document.getElementById('avatarPromptText');
-
-  function toggleAilsaAudio() {
-    if (audioAsset.paused) {
-      audioAsset.play();
-      wrapper.classList.add('playing');
-      stateBadge.textContent = 'Ailsa · Speaking';
-      promptText.textContent = '⏸ Click to pause audio briefing';
-    } else {
-      audioAsset.pause();
-      wrapper.classList.remove('playing');
-      stateBadge.textContent = 'Ailsa · Paused';
-      promptText.textContent = '▶ Click to resume briefing';
-    }
-  }
-
-  // Auto-reset UI when audio track finishes cleanly
-  audioAsset.addEventListener('ended', () => {
-    wrapper.classList.remove('playing');
-    stateBadge.textContent = 'Ailsa · Offline';
-    promptText.textContent = '🔈 Click to listen to Ailsa (60s)';
-  });
-
-  // SMOOTH ANCHOR NAV LINKS
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
-      const el = document.querySelector(id);
-      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-    });
-  });
-</script>
-
-</body>
-</html>
+      <div class="purchase-
