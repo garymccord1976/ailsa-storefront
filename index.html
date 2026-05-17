@@ -62,7 +62,8 @@
 
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
     @keyframes pulseDot { 0%,100%{opacity:1} 50%{opacity:0.4} }
-    @keyframes ripple { 0%{transform:scale(0.95);opacity:0.5;} 100%{transform:scale(1.15);opacity:0;} }
+    @keyframes ripple { 0%{transform:scale(0.95);opacity:0.5;} 100%{transform:scale(1.12);opacity:0;} }
+    @keyframes bounceBar { 0%, 100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
     
     .fu  { animation:fadeUp .55s ease both; }
     .fu1 { animation:fadeUp .55s .1s ease both; }
@@ -144,23 +145,63 @@
     }
     .btn-ghost:hover { border-color:var(--copper); background:var(--copper-dim); }
     
-    /* AVATAR INTERACTIVE LAYER */
+    /* AVATAR INTERACTIVE LAYER - HIGH INTENT VISUAL CTAs */
     .avatar-container { position:relative; width:100%; max-width:380px; aspect-ratio:4/5; }
     .avatar-ripple {
-      position:absolute; inset:-4px; border-radius:20px; border:2px solid var(--copper);
-      opacity:0; pointer-events:none; z-index:0;
+      position:absolute; inset:-2px; border-radius:18px; border:2px solid var(--copper);
+      opacity:0; pointer-events:none; z-index:0; transition: border-color 0.3s;
     }
-    .avatar-container.playing .avatar-ripple { animation:ripple 2s infinite ease-out; }
+    .avatar-container.playing .avatar-ripple { border-color: var(--green); animation:ripple 2s infinite ease-out; }
     
     .avatar-frame {
       width:100%; height:100%; position:relative; z-index:2; cursor:pointer;
-      border:1px solid rgba(184,115,51,0.15); border-radius:16px;
+      border:1px solid rgba(184,115,51,0.2); border-radius:16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
+    .avatar-frame:hover { border-color: var(--copper); box-shadow: 0 20px 40px rgba(184,115,51,0.15); }
+    .avatar-container.playing .avatar-frame { border-color: var(--green); }
+    
     .avatar-img { 
       width:100%; height:100%; object-fit:cover; display:block; border-radius:15px;
-      background: var(--navy-mid);
+      transition: filter 0.3s ease;
     }
+    .avatar-frame:hover .avatar-img { filter: brightness(0.75); }
+    .avatar-container.playing .avatar-img { filter: brightness(0.7); }
     
+    /* Center Video-Style Play Deck */
+    .avatar-center-play-deck {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; z-index: 4; pointer-events: none;
+    }
+    .avatar-play-btn {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(0, 23, 45, 0.85); border: 2px solid var(--copper);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--off-white); font-size: 20px; padding-left: 4px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .avatar-frame:hover .avatar-play-btn {
+      transform: scale(1.1); background: linear-gradient(135deg, var(--copper), var(--copper-light));
+      color: var(--navy); border-color: transparent;
+    }
+    .avatar-container.playing .avatar-play-btn {
+      padding-left: 0; background: rgba(34, 197, 148, 0.9); border-color: transparent; color: var(--navy);
+    }
+    .avatar-play-txt {
+      font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--off-white); background: rgba(0, 23, 45, 0.75); padding: 4px 12px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(4px);
+      transition: opacity 0.3s ease;
+    }
+    .avatar-container.playing .avatar-frame:not(:hover) .avatar-play-btn,
+    .avatar-container.playing .avatar-frame:not(:hover) .avatar-play-txt {
+      opacity: 0.4;
+    }
+
+    /* Floating Status Indicator */
     .avatar-badge {
       position:absolute; top:1rem; left:1rem;
       display:inline-flex; align-items:center; gap:6px; background:rgba(0,23,45,0.85);
@@ -171,14 +212,24 @@
     .avatar-badge::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--copper); }
     .avatar-container.playing .avatar-badge::before { background:var(--green); animation:pulseDot 1s infinite; }
     
+    /* Low-Profile Bottom Deck preserving shoulder detailing */
     .avatar-control-capsule {
       position:absolute; bottom:1rem; left:1rem; right:1rem;
-      background:rgba(0,23,45,0.8); border:1px solid var(--border);
+      background:rgba(0,23,45,0.85); border:1px solid var(--border);
       padding:0.75rem 1rem; border-radius:12px; backdrop-filter:blur(8px);
       z-index:3; display:flex; align-items:center; justify-content:space-between; gap:10px;
     }
     .avatar-title { font-family: 'Playfair Display', serif; font-size:1.05rem; color:var(--off-white); font-weight:700; }
-    .avatar-prompt { font-size:11px; color:var(--copper-light); font-weight:600; text-transform:uppercase; letter-spacing:0.02em; }
+    
+    /* Live Equaliser Waveform Graphic */
+    .avatar-wave-container { display: flex; align-items: flex-end; gap: 3px; height: 16px; width: 24px; opacity: 0.2; transition: opacity 0.3s; }
+    .avatar-container.playing .avatar-wave-container { opacity: 1; }
+    .wave-bar { width: 3px; height: 100%; background: var(--copper-light); border-radius: 1px; transform-origin: bottom; }
+    .avatar-container.playing .wave-bar { background: var(--green); animation: bounceBar 1s infinite ease-in-out; }
+    .wb-1 { animation-delay: 0.1s !important; }
+    .wb-2 { animation-delay: 0.4s !important; }
+    .wb-3 { animation-delay: 0.2s !important; }
+    .wb-4 { animation-delay: 0.6s !important; }
 
     .trust-row { margin-top:2.5rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; border-top:1px solid var(--border-sub); padding-top:1.5rem; }
     .trust-item { display:flex; align-items:center; gap:7px; font-size:12px; color:var(--slate); }
@@ -187,176 +238,4 @@
     /* STATS */
     .stats-bar {
       border-top:1px solid var(--border-sub); border-bottom:1px solid var(--border-sub);
-      background:rgba(255,255,255,.02); padding:2rem 0;
-    }
-    .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:1.5rem; text-align:center; }
-    .stat-v { font-family: 'Playfair Display', serif; font-size:2rem; font-weight:900; color:var(--copper); display:block; font-variant-numeric: lining-nums; }
-    .stat-l { font-size:10px; color:var(--slate); text-transform:uppercase; letter-spacing: .08em; }
-
-    /* SECTION HDR */
-    .sec-eye { font-size:10px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.6rem; display:block; }
-    .sec-title { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:var(--off-white); margin-bottom:1rem; max-width:600px; }
-    .sec-body  { font-size:15px; color:var(--slate); max-width:500px; line-height:1.75; }
-
-    /* ASSETS GRID */
-    .assets-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(235px,1fr)); gap:1.5rem; margin-top:3rem; }
-    .asset-card {
-      background:rgba(255,255,255,.02); border:1px solid var(--border-sub);
-      border-radius:12px; padding:1.75rem; position:relative; overflow:hidden;
-      transition:border-color .25s, background .25s, transform .2s;
-    }
-    .asset-card::before {
-      content:''; position:absolute; top:0; left:0; right:0; height:2px;
-      background:linear-gradient(90deg,var(--copper),var(--copper-light));
-      opacity:0; transition:opacity .25s;
-    }
-    .asset-card:hover { border-color:var(--border); background:rgba(184,115,51,.04); transform:translateY(-2px); }
-    .asset-card:hover::before { opacity:1; }
-    .asset-num { font-size:9px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.85rem; display:block; font-variant-numeric: lining-nums; }
-    .asset-icon { width:38px; height:38px; border-radius:8px; background:var(--copper-dim); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:17px; margin-bottom:.9rem; }
-    .asset-card h3 { font-size:1.05rem; font-weight:700; color:var(--off-white); margin-bottom:.45rem; }
-    .asset-card p  { font-size:13px; color:var(--slate); line-height:1.65; margin-bottom:1rem; }
-    .badge { display:inline-flex; align-items:center; gap:5px; font-size:10px; font-family: 'Inter', sans-serif; padding:3px 10px; border-radius:4px; font-weight:600; letter-spacing:.04em; }
-    .badge-a { background:#3b1f00; color:#f59e0b; }
-    .badge-b { background:#1e3a5f; color:#60a5fa; }
-    .badge-c { background:#1a1051; color:#a78bfa; }
-    .badge-d { background:#0d3320; color:#4ade80; }
-
-    /* GRADER STRIP */
-    .grader-strip {
-      background:linear-gradient(135deg,rgba(184,115,51,.08),rgba(184,115,51,.03));
-      border:1px solid var(--border); border-radius:14px; padding:2.25rem 2.5rem;
-      display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; margin-top:4rem;
-    }
-    .grader-strip h3 { font-size:1.35rem; color:var(--off-white); margin-bottom:.45rem; }
-    .grader-strip p  { font-size:13px; color:var(--slate); max-width:400px; }
-    .score-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:1.1rem; }
-    .score-chip { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-family: 'Inter', sans-serif; padding:4px 12px; border-radius:6px; font-weight:500; font-variant-numeric: lining-nums; }
-    .sc-g { background:rgba(34,197,94,.1); color:#22c55e; border:1px solid rgba(34,197,94,.2); }
-    .sc-a { background:rgba(245,158,11,.1); color:#f59e0b; border:1px solid rgba(245,158,11,.2); }
-    .sc-r { background:rgba(239,68,68,.1); color:#ef4444; border:1px solid rgba(239,68,68,.2); }
-
-    /* PURCHASE */
-    .purchase-bg { background:rgba(255,255,255,.01); }
-    .purchase-grid { display:grid; grid-template-columns:1fr 1.35fr; gap:3rem; align-items:start; }
-    @media(max-width:780px){ .purchase-grid{grid-template-columns:1fr} .pricing-card{position:static} }
-    .purchase-info h2 { font-size:clamp(1.6rem,3.5vw,2.2rem); margin-bottom:1.1rem; }
-    .included-list { margin-top:1.75rem; display:flex; flex-direction:column; gap:10px; }
-    .included-item {
-      display:flex; align-items:flex-start; gap:12px; padding:1rem;
-      background:rgba(255,255,255,.02); border:1px solid var(--border-sub); border-radius:8px;
-    }
-    .ii-icon { font-size:15px; color:var(--copper); flex-shrink:0; margin-top:2px; }
-    .ii-body h4 { font-size:13px; font-weight:600; color:var(--off-white); margin-bottom:2px; }
-    .ii-body p  { font-size:12px; color:var(--slate); line-height:1.5; }
-    .gk-box {
-      border:1px solid rgba(245,158,11,.22); background:rgba(245,158,11,.04);
-      border-radius:9px; padding:1.1rem 1.4rem; margin-top:1.4rem;
-      font-size:12px; color:var(--slate); line-height:1.7;
-      font-variant-numeric: lining-nums;
-    }
-    .gk-box strong { color:var(--off-white); }
-
-    /* PRICING CARD */
-    .pricing-card {
-      background:var(--navy-mid); border:1px solid var(--border);
-      border-radius:14px; padding:2.25rem; position:sticky; top:88px;
-    }
-    .pricing-top { border-bottom:1px solid var(--border-sub); padding-bottom:1.4rem; margin-bottom:1.4rem; }
-    .p-label { font-size:9px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.4rem; display:block; font-weight:600; }
-    .p-product { font-size:1.05rem; font-weight:700; color:var(--off-white); margin-bottom:1.1rem; }
-    .p-amount  { display:flex; align-items:baseline; gap:3px; }
-    .p-cur  { font-family: 'Playfair Display', serif; font-size:1.4rem; color:var(--copper); }
-    .p-val  { font-family: 'Playfair Display', serif; font-size:3.5rem; font-weight:900; color:var(--off-white); line-height:1; }
-    .p-note { font-size:11px; color:var(--slate); margin-top:4px; display:block; }
-    .p-features { margin-bottom:1.6rem; }
-    .p-feat {
-      display:flex; align-items:center; gap:10px; padding:8px 0;
-      border-bottom:1px solid var(--border-sub);
-      font-size:13px; color:var(--slate); font-family: 'Inter', sans-serif;
-      font-variant-numeric: lining-nums;
-    }
-    .p-feat:last-child { border-bottom:none; }
-    .p-feat .ck { color:var(--green); font-size:13px; }
-    .btn-buy {
-      width:100%; padding:1rem;
-      background:linear-gradient(135deg,var(--copper),var(--copper-light));
-      color:var(--navy); border:none; border-radius:8px;
-      font-family: 'Inter', sans-serif; font-size:15px; font-weight:600; cursor:pointer;
-      letter-spacing:.04em; box-shadow:0 4px 28px rgba(184,115,51,.3);
-      display:flex; align-items:center; justify-content:center; gap:8px;
-      transition:opacity .2s, transform .15s;
-    }
-    .btn-buy:hover { opacity:.87; transform:translateY(-1px); }
-    .p-guarantee { margin-top:.85rem; text-align:center; font-size:11px; color:var(--slate); }
-
-    /* FOOTER */
-    footer { border-top:1px solid var(--border-sub); padding:3rem 0 2rem; }
-    .footer-top { display:flex; align-items:flex-start; justify-content:space-between; gap:2rem; flex-wrap:wrap; margin-bottom:2.25rem; }
-    .f-name { font-family: 'Playfair Display', serif; font-size:14px; font-weight:700; color:var(--off-white); letter-spacing:.1em; text-transform:uppercase; display:block; margin-bottom:.3rem; }
-    .f-tag  { font-size:10px; color:var(--slate); letter-spacing:.06em; text-transform:uppercase; }
-    .f-links { display:flex; gap:1.5rem; flex-wrap:wrap; list-style:none; }
-    .f-links a { font-size:12px; color:var(--slate); text-decoration:none; transition:color .2s; }
-    .f-links a:hover { color:var(--copper); }
-    .disclaimer-box { background:rgba(255,255,255,.02); border:1px solid var(--border-sub); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:2rem; }
-    .disc-label { font-size:9px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.1em; text-transform:uppercase; margin-bottom:7px; display:block; font-weight:600; }
-    .disc-text  { font-size:11px; color:rgba(138,155,176,.65); line-height:1.7; font-variant-numeric: lining-nums; }
-    .footer-bottom { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-size:11px; color:var(--slate); border-top:1px solid var(--border-sub); padding-top:1.4rem; }
-  </style>
-</head>
-<body>
-
-<audio id="ailsaVoiceAsset" src="ailsa-voice.mp3" preload="auto"></audio>
-
-<nav>
-  <div class="container">
-    <div class="nav-inner">
-      <a href="#" class="nav-brand">
-        <div class="nav-shield">🛡</div>
-        <div>
-          <span class="nav-name">Ailsa Studio</span>
-          <span class="nav-sub">AI Compliance Shield</span>
-        </div>
-      </a>
-      <a href="#purchase" class="btn-nav">Get the Vault →</a>
-    </div>
-  </div>
-</nav>
-
-
-<section class="hero">
-  <div class="container">
-    <div class="hero-split">
-      
-      <div>
-        <div class="eyebrow fu"><span class="eyebrow-dot"></span> 2026 UK AI Governance Framework</div>
-        <h1 class="fu1">Is your business <em>insurable</em><br/>under the 2026 AI standard?</h1>
-        <p class="hero-sub fu2">
-          Every UK SME using AI tools faces a new category of Professional Indemnity risk in 2026.
-          The Ailsa Compliance Shield is the complete governance infrastructure your PI insurer will ask for.
-        </p>
-        <div class="hero-actions fu3">
-          <a href="https://ailsa-risk-grader.vercel.app/" target="_blank" rel="noopener" class="btn-primary">⚡ Run Free Risk Assessment</a>
-          <a href="#vault" class="btn-ghost">See what's included ↓</a>
-        </div>
-      </div>
-
-      <div class="avatar-container fu3" id="avatarWrapper">
-        <div class="avatar-ripple"></div>
-        <span class="avatar-badge" id="avatarStateBadge">Ailsa · Offline</span>
-        <div class="avatar-frame" onclick="toggleAilsaAudio()">
-          <img src="ailsa-avatar.jpg" alt="Ailsa — AI Compliance Guide" class="avatar-img" />
-          <div class="avatar-control-capsule">
-            <h3 class="avatar-title">Ailsa</h3>
-            <span class="avatar-prompt" id="avatarPromptText">🔈 Audio Briefing (60s)</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="trust-row fu4">
-      <div class="trust-item"><span class="trust-tick">✓</span> Built for UK SMEs</div>
-      <div class="trust-item"><span class="trust-tick">✓</span> Aligned to Aviva &amp; Hiscox PI criteria</div>
-      <div class="trust-item"><span class="trust-tick">✓</span> UK GDPR &amp; ICO compliant framework</div>
-      <div class="trust-item"><span class="trust-tick">✓
+      background:rgba(255,255,255,.02);
