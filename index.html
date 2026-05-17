@@ -4,11 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ailsa Studio — 2026 AI Compliance Shield</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,700;9..144,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
     :root {
       --navy:        #00172D;
       --navy-mid:    #001F3D;
@@ -21,18 +19,32 @@
       --border-sub:  rgba(255,255,255,0.07);
       --green:       #22c55e;
     }
+    
     html { scroll-behavior: smooth; }
+    
     body {
-      background: var(--navy); color: var(--off-white);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 15px;
-      line-height: 1.6; overflow-x: hidden;
+      background: var(--navy); 
+      color: var(--off-white);
+      /* Premium local system font stack - zero internet network requests required */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      font-size: 15px;
+      line-height: 1.6; 
+      overflow-x: hidden;
     }
+    
     body::before {
       content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
       opacity:.5;
     }
-    h1,h2,h3,h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; line-height: 1.15; }
+    
+    /* Forces an elegant, traditional editorial layout using premium local serifs */
+    h1, h2, h3, h4 { 
+      font-family: Georgia, Cambria, "Times New Roman", Times, serif; 
+      font-weight: 700; 
+      line-height: 1.15; 
+    }
+    
     .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; position:relative; z-index:1; }
     .section { padding:6rem 0; }
 
@@ -62,7 +74,7 @@
       font-size:12px; color:var(--copper);
     }
     .nav-name {
-      font-family: 'Fraunces', Georgia, serif; font-size:13px; font-weight:700;
+      font-family: Georgia, serif; font-size:13px; font-weight:700;
       color:var(--off-white); letter-spacing:.1em; text-transform:uppercase; display:block;
     }
     .nav-sub { font-size:9px; color:var(--slate); letter-spacing:.07em; text-transform:uppercase; display:block; }
@@ -70,7 +82,7 @@
       display:inline-flex; align-items:center; gap:6px; padding:.5rem 1.1rem;
       background:linear-gradient(135deg,var(--copper),var(--copper-light));
       color:var(--navy); border:none; border-radius:6px;
-      font-family: 'Inter', sans-serif; font-size:12px; font-weight:600;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size:12px; font-weight:600;
       letter-spacing:.05em; cursor:pointer; text-decoration:none; transition:opacity .2s;
     }
     .btn-nav:hover { opacity:.85; }
@@ -88,7 +100,7 @@
 
     .eyebrow {
       display:inline-flex; align-items:center; gap:8px;
-      font-size:10px; font-family: 'Inter', sans-serif;
+      font-size:10px; font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       color:var(--copper); letter-spacing:.12em; text-transform:uppercase;
       border:1px solid var(--border); background:var(--copper-dim);
       padding:4px 14px; border-radius:20px; margin-bottom:1.75rem;
@@ -110,7 +122,7 @@
       display:inline-flex; align-items:center; gap:8px; padding:.9rem 2rem;
       background:linear-gradient(135deg,var(--copper),var(--copper-light));
       color:var(--navy); border:none; border-radius:8px;
-      font-family: 'Inter', sans-serif; font-size:14px; font-weight:600;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size:14px; font-weight:600;
       letter-spacing:.04em; cursor:pointer; text-decoration:none;
       box-shadow:0 4px 28px rgba(184,115,51,.32); transition:opacity .2s, transform .2s;
     }
@@ -119,7 +131,7 @@
       display:inline-flex; align-items:center; gap:8px; padding:.9rem 1.75rem;
       background:transparent; color:var(--off-white);
       border:1px solid rgba(255,255,255,.13); border-radius:8px;
-      font-family: 'Inter', sans-serif; font-size:14px; font-weight:500;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size:14px; font-weight:500;
       cursor:pointer; text-decoration:none; transition:border-color .2s, background .2s;
     }
     .btn-ghost:hover { border-color:var(--copper); background:var(--copper-dim); }
@@ -156,7 +168,7 @@
     .avatar-badge::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--copper); }
     .avatar-container.playing .avatar-badge::before { background:var(--green); animation:pulseDot 1s infinite; }
     
-    .avatar-title { font-family: 'Fraunces', Georgia, serif; font-size:1.15rem; color:var(--off-white); margin-bottom:0.25rem; }
+    .avatar-title { font-family: Georgia, serif; font-size:1.15rem; color:var(--off-white); margin-bottom:0.25rem; }
     .avatar-prompt { font-size:12px; color:var(--copper-light); display:flex; align-items:center; gap:4px; font-weight:500; }
 
     .trust-row { margin-top:2.5rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; border-top:1px solid var(--border-sub); padding-top:1.5rem; }
@@ -169,11 +181,11 @@
       background:rgba(255,255,255,.02); padding:2rem 0;
     }
     .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:1.5rem; text-align:center; }
-    .stat-v { font-family: 'Fraunces', Georgia, serif; font-size:2rem; font-weight:900; color:var(--copper); display:block; }
+    .stat-v { font-family: Georgia, serif; font-size:2rem; font-weight:900; color:var(--copper); display:block; }
     .stat-l { font-size:10px; color:var(--slate); text-transform:uppercase; letter-spacing: .08em; }
 
     /* SECTION HDR */
-    .sec-eye { font-size:10px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.6rem; display:block; }
+    .sec-eye { font-size:10px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.6rem; display:block; }
     .sec-title { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:var(--off-white); margin-bottom:1rem; max-width:600px; }
     .sec-body  { font-size:15px; color:var(--slate); max-width:500px; line-height:1.75; }
 
@@ -191,11 +203,11 @@
     }
     .asset-card:hover { border-color:var(--border); background:rgba(184,115,51,.04); transform:translateY(-2px); }
     .asset-card:hover::before { opacity:1; }
-    .asset-num { font-size:9px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.85rem; display:block; }
+    .asset-num { font-size:9px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.85rem; display:block; }
     .asset-icon { width:38px; height:38px; border-radius:8px; background:var(--copper-dim); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:17px; margin-bottom:.9rem; }
     .asset-card h3 { font-size:1.05rem; font-weight:700; color:var(--off-white); margin-bottom:.45rem; }
     .asset-card p  { font-size:13px; color:var(--slate); line-height:1.65; margin-bottom:1rem; }
-    .badge { display:inline-flex; align-items:center; gap:5px; font-size:10px; font-family: 'Inter', sans-serif; padding:3px 10px; border-radius:4px; font-weight:600; letter-spacing:.04em; }
+    .badge { display:inline-flex; align-items:center; gap:5px; font-size:10px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; padding:3px 10px; border-radius:4px; font-weight:600; letter-spacing:.04em; }
     .badge-a { background:#3b1f00; color:#f59e0b; }
     .badge-b { background:#1e3a5f; color:#60a5fa; }
     .badge-c { background:#1a1051; color:#a78bfa; }
@@ -210,7 +222,7 @@
     .grader-strip h3 { font-size:1.35rem; color:var(--off-white); margin-bottom:.45rem; }
     .grader-strip p  { font-size:13px; color:var(--slate); max-width:400px; }
     .score-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:1.1rem; }
-    .score-chip { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-family: 'Inter', sans-serif; padding:4px 12px; border-radius:6px; font-weight:500; }
+    .score-chip { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; padding:4px 12px; border-radius:6px; font-weight:500; }
     .sc-g { background:rgba(34,197,94,.1); color:#22c55e; border:1px solid rgba(34,197,94,.2); }
     .sc-a { background:rgba(245,158,11,.1); color:#f59e0b; border:1px solid rgba(245,158,11,.2); }
     .sc-r { background:rgba(239,68,68,.1); color:#ef4444; border:1px solid rgba(239,68,68,.2); }
@@ -241,17 +253,17 @@
       border-radius:14px; padding:2.25rem; position:sticky; top:88px;
     }
     .pricing-top { border-bottom:1px solid var(--border-sub); padding-bottom:1.4rem; margin-bottom:1.4rem; }
-    .p-label { font-size:9px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.4rem; display:block; font-weight:600; }
+    .p-label { font-size:9px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; color:var(--copper); letter-spacing:.12em; text-transform:uppercase; margin-bottom:.4rem; display:block; font-weight:600; }
     .p-product { font-size:1.05rem; font-weight:700; color:var(--off-white); margin-bottom:1.1rem; }
     .p-amount  { display:flex; align-items:baseline; gap:3px; }
-    .p-cur  { font-family: 'Fraunces', Georgia, serif; font-size:1.4rem; color:var(--copper); }
-    .p-val  { font-family: 'Fraunces', Georgia, serif; font-size:3.5rem; font-weight:900; color:var(--off-white); line-height:1; }
+    .p-cur  { font-family: Georgia, serif; font-size:1.4rem; color:var(--copper); }
+    .p-val  { font-family: Georgia, serif; font-size:3.5rem; font-weight:900; color:var(--off-white); line-height:1; }
     .p-note { font-size:11px; color:var(--slate); margin-top:4px; display:block; }
     .p-features { margin-bottom:1.6rem; }
     .p-feat {
       display:flex; align-items:center; gap:10px; padding:8px 0;
       border-bottom:1px solid var(--border-sub);
-      font-size:13px; color:var(--slate); font-family: 'Inter', sans-serif;
+      font-size:13px; color:var(--slate); font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     }
     .p-feat:last-child { border-bottom:none; }
     .p-feat .ck { color:var(--green); font-size:13px; }
@@ -259,7 +271,7 @@
       width:100%; padding:1rem;
       background:linear-gradient(135deg,var(--copper),var(--copper-light));
       color:var(--navy); border:none; border-radius:8px;
-      font-family: 'Inter', sans-serif; font-size:15px; font-weight:600; cursor:pointer;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size:15px; font-weight:600; cursor:pointer;
       letter-spacing:.04em; box-shadow:0 4px 28px rgba(184,115,51,.3);
       display:flex; align-items:center; justify-content:center; gap:8px;
       transition:opacity .2s, transform .15s;
@@ -270,13 +282,13 @@
     /* FOOTER */
     footer { border-top:1px solid var(--border-sub); padding:3rem 0 2rem; }
     .footer-top { display:flex; align-items:flex-start; justify-content:space-between; gap:2rem; flex-wrap:wrap; margin-bottom:2.25rem; }
-    .f-name { font-family: 'Fraunces', Georgia, serif; font-size:14px; font-weight:700; color:var(--off-white); letter-spacing:.1em; text-transform:uppercase; display:block; margin-bottom:.3rem; }
+    .f-name { font-family: Georgia, serif; font-size:14px; font-weight:700; color:var(--off-white); letter-spacing:.1em; text-transform:uppercase; display:block; margin-bottom:.3rem; }
     .f-tag  { font-size:10px; color:var(--slate); letter-spacing:.06em; text-transform:uppercase; }
     .f-links { display:flex; gap:1.5rem; flex-wrap:wrap; list-style:none; }
     .f-links a { font-size:12px; color:var(--slate); text-decoration:none; transition:color .2s; }
     .f-links a:hover { color:var(--copper); }
     .disclaimer-box { background:rgba(255,255,255,.02); border:1px solid var(--border-sub); border-radius:8px; padding:1.25rem 1.5rem; margin-bottom:2rem; }
-    .disc-label { font-size:9px; font-family: 'Inter', sans-serif; color:var(--copper); letter-spacing:.1em; text-transform:uppercase; margin-bottom:7px; display:block; font-weight:600; }
+    .disc-label { font-size:9px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; color:var(--copper); letter-spacing:.1em; text-transform:uppercase; margin-bottom:7px; display:block; font-weight:600; }
     .disc-text  { font-size:11px; color:rgba(138,155,176,.65); line-height:1.7; }
     .footer-bottom { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-size:11px; color:var(--slate); border-top:1px solid var(--border-sub); padding-top:1.4rem; }
   </style>
@@ -519,7 +531,7 @@
 
     <div class="footer-bottom">
       <span>© 2026 Ailsa Studio. All rights reserved.</span>
-      <span style="color:rgba(138,155,176,.4)">Fraunces · Inter · #00172D · #B87333</span>
+      <span style="color:rgba(138,155,176,.4)">Georgia · System Fonts · #00172D · #B87333</span>
     </div>
   </div>
 </footer>
